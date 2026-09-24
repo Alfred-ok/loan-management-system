@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    background: #f3f4f6;
+    color: #111827;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* SweetAlert sits above drawers and modals */
+.swal2-container {
+    z-index: 9999 !important;
+}
+
+.swal2-popup {
+    font-family: var(--font-sans);
+    border-radius: 1rem !important;
+}
+
+/* Printing: only the element marked .print-area is printed */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .print-area,
+    .print-area * {
+        visibility: visible;
+    }
+    .print-area {
+        position: absolute;
+        inset: 0;
+        padding: 16px;
+        background: white;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
